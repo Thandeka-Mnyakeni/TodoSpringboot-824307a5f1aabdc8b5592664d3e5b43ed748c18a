@@ -16,6 +16,7 @@ public interface TodoService {
 
     TodoItem findByCompleted(Boolean value);
 
-    TodoItem addNoteToTodoItem( Long id,  String note )
+    TodoItem addNoteToTodoItem( Long id,  String note );
 }
 
+// create a new rest endpoint that take param id and body string to save a new note to an existing todo item, return the edited item back. implement the method  in the service to do this. 

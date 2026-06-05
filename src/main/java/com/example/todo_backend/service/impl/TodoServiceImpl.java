@@ -17,8 +17,9 @@ public class TodoServiceImpl implements TodoService {
     @Override
     public TodoItem findById(Long id) {
         if (todoRepository.findById( id ).isPresent()) {
-            todoRepository.findById( id ).get();
+            return todoRepository.findById( id ).get();
         }
+        return null;
     }
 
     @Override
@@ -43,7 +44,9 @@ public class TodoServiceImpl implements TodoService {
 
     @Override
     public TodoItem addNoteToTodoItem(Long id, String note) {
-        return null;
+        TodoItem item = todoRepository.findById(id).get();
+        item.setNote(note);
+        return todoRepository.save(item);
     }
 
 }

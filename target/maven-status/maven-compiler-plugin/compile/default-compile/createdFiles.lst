@@ -1,0 +1,9 @@
+com\example\todo_backend\entities\TodoItem$TodoItemBuilder.class
+com\example\todo_backend\entities\TodoItem.class
+com\example\todo_backend\api\TodoRest.class
+com\example\todo_backend\service\impl\TodoServiceImpl.class
+com\example\todo_backend\api\TodoRest$RequestNotFoundException.class
+com\example\todo_backend\repository\TodoItemRepository.class
+com\example\todo_backend\api\TodoRest$BadRequestException.class
+com\example\todo_backend\service\TodoService.class
+com\example\todo_backend\TodoBackendApplication.class

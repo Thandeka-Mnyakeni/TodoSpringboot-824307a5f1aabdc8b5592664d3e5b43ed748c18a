@@ -4,6 +4,8 @@ import com.example.todo_backend.entities.TodoItem;
 import com.example.todo_backend.service.TodoService;
 import io.swagger.v3.oas.annotations.Operation;
 import lombok.AllArgsConstructor;
+
+import org.springframework.data.repository.query.Param;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
 import java.util.List;
@@ -46,6 +48,15 @@ public class TodoRest {
             throw new RuntimeException("Todo item is null");
         }
         return toDoService.createTodoItem( todoItem );
+    }
+
+    @PatchMapping("/{id}")
+    @Operation(description = "update todo item")
+    public TodoItem addNoteToTodoItem(@PathVariable Long id, @RequestBody String note){
+         if (Objects.isNull(id)) {
+            throw new RuntimeException("Todo item does not exist");
+        }
+        return toDoService.addNoteToTodoItem( id, note );
     }
 
     @DeleteMapping(value = "/{id}")
