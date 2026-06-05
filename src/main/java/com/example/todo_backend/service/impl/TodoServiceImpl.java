@@ -16,8 +16,9 @@ public class TodoServiceImpl implements TodoService {
 
     @Override
     public TodoItem findById(Long id) {
-        return null;
-        //todo implement this find by id
+        if (todoRepository.findById( id ).isPresent()) {
+            todoRepository.findById( id ).get();
+        }
     }
 
     @Override
@@ -32,13 +33,17 @@ public class TodoServiceImpl implements TodoService {
 
     @Override
     public TodoItem createTodoItem(TodoItem item) {
-        return null;
+        return todoRepository.save( item );
     }
 
-    //implement a find by completion method p.s. don't forget the interface
     @Override
-    public TodoItem findByCompleted(Long id){
-        return todoRepository.findByCompleted(id);
+    public TodoItem findByCompleted(Boolean value){
+        return todoRepository.findByCompleted(value);
+    }
+
+    @Override
+    public TodoItem addNoteToTodoItem(Long id, String note) {
+        return null;
     }
 
 }

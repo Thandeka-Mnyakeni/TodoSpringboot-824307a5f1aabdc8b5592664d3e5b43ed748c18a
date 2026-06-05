@@ -29,16 +29,16 @@ public class TodoRest {
         return toDoService.findById( id );
     }
 
-    @GetMapping(value ="/{id}")
+    @GetMapping(value ="/status/{value}")
     @Operation(description = "find by completed")
-    public TodoItem findByCompleted(@RequestBody Long id) {
-        if (Objects.isNull(id)) {
+    public TodoItem findByCompleted(@PathVariable Boolean value) {
+        if (Objects.isNull(value)) {
             throw new RuntimeException("Todo item is incomplete");
         }
-        return toDoService.findByCompleted( id );
+        return toDoService.findByCompleted( value );
     }
     
-    @PostMapping
+    @PostMapping("/add-item")
     @ResponseStatus(HttpStatus.CREATED)
     @Operation(description = "create new todo item")
     public TodoItem create(@RequestBody TodoItem todoItem){
