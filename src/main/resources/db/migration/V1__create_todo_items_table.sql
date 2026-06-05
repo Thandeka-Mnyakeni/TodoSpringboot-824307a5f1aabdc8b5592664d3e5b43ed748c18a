@@ -1,0 +1,5 @@
+CREATE TABLE todo_items (
+    id BIGINT AUTO_INCREMENT PRIMARY KEY,
+    description VARCHAR(255) NOT NULL,
+    complete BOOLEAN NOT NULL DEFAULT FALSE
+);
