@@ -4,6 +4,8 @@ import jakarta.persistence.*;
 import jakarta.validation.constraints.NotNull;
 import lombok.*;
 
+import java.util.List;
+
 @Getter
 @Setter
 @AllArgsConstructor
@@ -21,5 +23,9 @@ public class TodoItem {
     @Column(name = "description")
     private String description;
 
-    private final Boolean completed = false;
+    @Column(name = "completed")
+    private Boolean completed = false;
+
+    @Column(name = "note")
+    private String note;
 }

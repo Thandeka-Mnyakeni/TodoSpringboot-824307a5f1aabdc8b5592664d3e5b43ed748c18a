@@ -14,6 +14,8 @@ public interface TodoService {
 
     TodoItem createTodoItem( TodoItem item );
 
-    TodoItem findByCompleted(Long id);
+    TodoItem findByCompleted(Boolean value);
+
+    TodoItem addNoteToTodoItem( Long id,  String note )
 }
 
